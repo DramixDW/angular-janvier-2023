@@ -1,0 +1,15 @@
+<div>
+  <h3>
+    Mes films
+  </h3>
+  <input type="text" name="title" [(ngModel)]="newMovieTitle" (keyup.enter)="createMovie()">
+  <p *ngFor="let movie of movies" [class.seen]="movie.isSeen">
+    {{ movie.title }}
+    <button (click)="updateIsSeen(movie)">
+      VU
+    </button>
+    <button (click)="deleteMovie(movie)">
+      Supprimer
+    </button>
+  </p>
+</div>

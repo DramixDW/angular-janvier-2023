@@ -1,0 +1,14 @@
+<p class="rouge">movies dhldsqhfqshdj!</p>
+
+<div *ngIf="isVisible">
+    texte caché
+</div>
+
+<div>
+    <button (click)="changeColor()">
+        Cliquez moi pour changer la couleur des titres
+    </button>
+    <p *ngFor="let movie of movies" [class.seen]="isSeen">
+        {{ movie }}
+    </p>
+</div>

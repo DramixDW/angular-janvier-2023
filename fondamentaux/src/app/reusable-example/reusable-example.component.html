@@ -1,0 +1,11 @@
+<p>{{ header }}</p>
+
+<ng-content select=".body"></ng-content>
+
+<button (click)="displayDate()">
+    Affichez la date
+</button>
+
+<ng-content select="[footer]">
+    
+</ng-content>

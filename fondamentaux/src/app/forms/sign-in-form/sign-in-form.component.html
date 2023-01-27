@@ -1,0 +1,15 @@
+<form [formGroup]="formSignIn">
+  <div formGroupName="passwords">
+      <div>
+        <label for="desiredPassword">Mot de passe</label>
+        <input type="text" id="desiredPassword" formControlName="desiredPassword">
+      </div>
+      <div>
+        <label for="confirmPassword">Confirmation mot de passe</label>
+        <input type="text" id="confirmPassword" formControlName="confirmPassword">
+      </div>
+      <div class="error" *ngIf="Passwords?.invalid">
+          Le mot de passe et sa confirmation devrait être égal
+      </div>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+<div>
+    <div class="header">
+        <p>
+            {{zippyTitle}}
+        </p>
+        <button (click)="toggleDisplay()">
+            >
+        </button>
+    </div>
+    <div *ngIf="isDisplayed">
+        Mon élément caché
+        <input type="text" #input (keyup.enter)="setTitle(input)">
+    </div>
+</div>

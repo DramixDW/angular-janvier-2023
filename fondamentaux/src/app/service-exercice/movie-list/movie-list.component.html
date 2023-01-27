@@ -1,0 +1,14 @@
+<div>
+  <h3>
+    Les films
+  </h3>
+  <input type="text" [(ngModel)]="searchedValue" (keyup.enter)="searchMovies()">
+  <p *ngIf="!movies?.length">
+      Il n'y aucun film
+  </p>
+  <div>
+    <p *ngFor="let movie of DisplayedMovies" (click)="selectMovie(movie)" [class.selected]="movie.id === selectedMovieId">
+        {{movie.title}}
+    </p>
+  </div>
+</div>

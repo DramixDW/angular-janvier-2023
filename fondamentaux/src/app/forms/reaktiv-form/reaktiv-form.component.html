@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label for="username">Pseudo</label>
+    <input type="text" id="username" formControlName="username">
+  </div>
+  <div *ngIf="Username?.pending">
+    On vérifie les authorisations ;-)
+  </div>
+  <div class="error" *ngIf="Username?.invalid">
+      <p *ngIf="Username?.errors?.['minlength']">
+        Le pseudo doit faire au moins {{Username?.errors?.['minlength'].requiredLength}}
+      </p>
+      <p *ngIf="Username?.errors?.['hasSpaces']">
+        Pas d'espace stp (:
+      </p>
+      <p *ngIf="Username?.errors?.['hasForbiddenValue']">
+        Pas {{Username?.errors?.['hasForbiddenValue']}} stp (:
+      </p>
+      <p *ngIf="Username?.errors?.['isUnauthorized']">
+        Ce pseudo n'est pas autorisé.
+      </p>
+  </div>
+  <div>
+    <label for="comment">Commentaire</label>
+    <textarea id="comment" formControlName="comment"></textarea>
+  </div>
+  <button type="submit" [disabled]="form.invalid">
+    Submit
+  </button>
+</form>

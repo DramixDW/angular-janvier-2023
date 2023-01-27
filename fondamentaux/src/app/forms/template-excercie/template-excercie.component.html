@@ -1,0 +1,27 @@
+<form #form="ngForm" (ngSubmit)="submit(form)">
+    <div>
+        <label for="username">Nom d'utilisateur</label>
+        <input required  minlength="5" maxlength="25" ngModel #username="ngModel" type="text" id="username" name="username">
+    </div>
+    <div class="error" *ngIf="username.invalid && username.touched">
+        <p *ngIf="username.errors?.['required']">
+            Un pseudo est requis.
+        </p>
+        <p *ngIf="username.errors?.['minlength']">
+            Le pseudo doit faire au moins 5 charactères.
+        </p>
+        <p *ngIf="username.errors?.['maxlength']">
+            Le pseudo ne peut pas faire plus de 25 charactères.
+        </p>
+    </div>
+    <div>
+        <label for="password">Mot de passe</label>
+        <input ngModel  required #password="ngModel" type="text" id="password" name="password">
+    </div>
+    <div class="error" *ngIf="password.invalid && password.touched">
+        Le mot de passe est requis.
+    </div>
+    <button type="submit" [disabled]="form.invalid">
+        Submit
+    </button>
+</form>

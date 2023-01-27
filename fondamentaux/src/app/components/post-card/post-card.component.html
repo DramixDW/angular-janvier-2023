@@ -1,0 +1,12 @@
+<div>
+    <div>
+        {{ title }}
+        <app-like-counter (incrementLike)="incrementLike()" [likeCount]="likeCount">
+
+        </app-like-counter>
+    </div>
+    <div>
+        <ng-content>
+        </ng-content>
+    </div>
+</div>

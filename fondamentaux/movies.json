@@ -1,0 +1,11 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Alice au pays des merveilles",
+      "description": "Toujours regarder où l'on met les pieds quand on suit un lapin",
+      "rating": 4,
+      "isSeen": false
+    }
+  ]
+}

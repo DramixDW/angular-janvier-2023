@@ -1,0 +1,16 @@
+<form #form="ngForm" (ngSubmit)="submit(form)">
+  <div>
+    <label for="title">Titre</label>
+    <input type="text" [value]="movieTitle" ngModel [disabled]="!isAMovieSelected" name="title" id="title">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea type="text" ngModel [value]="movieDescription" [disabled]="!isAMovieSelected" name="description" id="description"></textarea>
+  </div>
+  <button type="submit" [disabled]="!isAMovieSelected">
+    Sauvegarder
+  </button>
+  <button [disabled]="!isAMovieSelected" type="button" (click)="delete()">
+    Supprimer
+  </button>
+</form>

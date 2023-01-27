@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+  <div>
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email">
+  </div>
+  <div *ngIf="Email?.pending">
+    Veuillez patientez, nous vérifions la présence
+    de votre email dans notre base de données.
+  </div>
+  <div class="error" *ngIf="Email?.invalid">
+    <p *ngIf="Email?.errors?.['email']">
+        Ceci n'est pas une email valide.
+    </p>
+    <p *ngIf="Email?.errors?.['shouldExists']">
+      C'est email n'est associé à aucun compte
+    </p>
+  </div>
+  <div>
+    <label for="password">Mot de passe</label>
+    <input type="text" id="password" formControlName="password">
+  </div>
+  <div class="error" *ngIf="Password?.invalid">
+    <p *ngIf="Password?.errors?.['required']">
+        Vous ne pouvez vous connecter sans mot de passe.
+    </p>
+    <p *ngIf="Password?.errors?.['danger']">
+        Petit filou.
+    </p>
+  </div>
+</form>

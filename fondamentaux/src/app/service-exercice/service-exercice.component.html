@@ -1,0 +1,2 @@
+<app-movie-list [movies]="movies" (onSelectMovie)="onMovieSelected($event)"></app-movie-list>
+<app-movie-form [movie]="selectedMovie" (saveMovie)="updateMovie($event)" (deleteMovie)="deleteMovie()"></app-movie-form>

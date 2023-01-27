@@ -1,0 +1,58 @@
+<p *ngIf="texteAComparer.length > 8">
+    Texte qui s'affiche de manière conditionelle
+</p>
+
+<ng-template #texte>
+    Texte qui n'est pas affiché de base
+</ng-template>
+
+<ng-template #warning>
+    Attention
+</ng-template>
+
+<div *ngIf="texteAComparer.length > 8 then texte">
+    Texte qui ne sera jamais affiché
+</div>
+
+<div *ngFor="let color of colors; index as indexValue; odd as isOdd">
+    <p [class]="color.class">
+        {{indexValue}}-{{color.name}}
+    </p>
+</div>
+
+<button (click)=" case = 'Home' ">
+    Home
+</button>
+<button (click)=" case = 'Contact' ">
+    Contact
+</button>
+<button (click)=" case = 'sfdghslfdjkh' ">
+    Default
+</button>
+<div [ngSwitch]="case">
+    <p *ngSwitchCase="'Home'">
+        Bienvenue
+    </p>
+    <p *ngSwitchCase="'Contact'">
+        Vous pouvez me contacter ici
+    </p>
+    <p *ngSwitchDefault>
+        C'est le cas par défaut
+    </p>
+</div>
+
+<input #input type='text' [disabled]="isDisabled" [(ngModel)]="value" (keyup.o)="addColor()">
+{{value}}
+<p [ngClass]="{
+    'purple': case === 'Home',
+    'red': case === 'Contact'
+}">
+    Je change de couleur. c'est magique
+</p>
+
+
+<p [ngStyle]="{
+    'backgroundColor': case === 'Home' ? 'yellow' : 'green' 
+}">
+    Je change de couleur. c'est magique
+</p>

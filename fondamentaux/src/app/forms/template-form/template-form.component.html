@@ -1,0 +1,26 @@
+<form #form="ngForm" (ngSubmit)="submit(form)">
+    <div>
+        <label for="firstname">Prénom</label>
+        <input ngModel #firstname="ngModel" minlength="3" required type="text" id="firstname" name="firstname" pattern="banane" />
+        <div class="error" *ngIf="firstname.invalid && firstname.touched">
+            <p *ngIf="firstname.errors?.['minlength']">
+                C'est pas assez long chef.Ton prénom devrait faire
+                {{ firstname.errors?.['minlength'].requiredLength}} charactères.
+                Là, il en fait seulement {{ firstname.errors?.['minlength'].actualLength}}
+            </p>
+            <p *ngIf="firstname.errors?.['required']">
+                On a besoin de ton prénom quand même dit
+            </p>
+            <p *ngIf="firstname.errors?.['pattern']">
+                Tu ne respectes la paterne
+            </p>
+        </div>
+    </div>
+    <div>
+        <label for="resume">Vos Compétences</label>
+        <textarea id="resume" ngModel name="resume"></textarea>
+    </div>
+    <button type="submit">
+        Submit
+    </button>
+</form>
